@@ -20,6 +20,13 @@ h1, h2, h3, h4 {
 
 .date {
     color: #828282;
+    float: right;
+    padding: 10px;
+}
+
+.edit{
+  float: right;
+  padding: 5px;
 }
 
 .save {
