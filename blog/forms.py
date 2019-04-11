@@ -5,3 +5,8 @@ class Synthetic_Form(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content']
+
+class DeleteForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = []

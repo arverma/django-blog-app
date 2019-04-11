@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <form method="POST" class="post-form">{% csrf_token %}
+        <button type="submit" class="delete btn btn-danger">confirm</button>
+    </form>
+{% endblock %}

@@ -5,6 +5,7 @@
         {% if user.is_authenticated %}
         <div class="edit">
           <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-danger" href="{% url 'post_delete' pk=post.pk %}">Delete</a>
         </div>
         {% endif %}
 

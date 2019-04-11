@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
 from django.shortcuts import render, get_object_or_404
-from .forms import Synthetic_Form
+from .forms import Synthetic_Form, DeleteForm
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -42,3 +42,14 @@ def post_edit(request, pk):
     else:
         form = Synthetic_Form(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_delete(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    if request.method == 'POST':
+        form = DeleteForm(request.POST, instance=post)
+        if form.is_valid(): # checks CSRF
+            post.delete()
+            return redirect('post_list')
+    else:
+        form = DeleteForm(instance = post)
+    return render(request, 'blog/post_delete.html', {'form': form})
